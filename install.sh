@@ -61,12 +61,15 @@ if [ ! -d "Domoticz-Google-Assistant" ]; then
     gitURL="https://github.com/DewGew/Domoticz-Google-Assistant"
     git clone $gitURL.git -b $theBranch Domoticz-Google-Assistant
     # Add service
+    echo ""
+    echo "*--------------------**---------------------*"
+    echo "Installing the service..."
+    echo ""
     sudo chmod +x ~/Domoticz-Google-Assistant/scripts/service-installer.sh
     sudo ./Domoticz-Google-Assistant/scripts/service-installer.sh
 else
     echo "!-----------------------------------!"
     echo "Domoticz-Google-Assistant already downloaded."
-    cd Domoticz-Google-Assistant
 fi
 # start the installer in the main app (or start shinobi if already installed)
 echo "*-----------------------------------*"
