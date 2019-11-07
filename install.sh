@@ -16,6 +16,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+exec sudo -u ${USER}
+
 cd /home/${USER}/
 echo "Opening Install Location"
 if [ ! -d "Domoticz-Google-Assistant" ]; then
