@@ -16,13 +16,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-set -o errexit
-
-if [[ $EUID -ne 0 ]]; then
-   echo "This script must be run as root (use sudo)" 1>&2
-   exit 1
-fi
-
 cd /home/${USER}/
 echo "Opening Install Location"
 if [ ! -d "Domoticz-Google-Assistant" ]; then
