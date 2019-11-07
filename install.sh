@@ -50,10 +50,6 @@ if [ ! -d "Domoticz-Google-Assistant" ]; then
     # Installing service
     sudo chmod +x ~/Domoticz-Google-Assistant/scripts/service-installer.sh
     sudo ./Domoticz-Google-Assistant/scripts/service-installer.sh
-    sudo  sudo systemctl daemon-reload
-    sudo systemctl enable dzga.service
-    echo "Starting Domoticz Google Assistant..."
-    sudo systemctl start dzga.service
 else
     echo "!-----------------------------------!"
     echo "Domoticz-Google-Assistant already downloaded."
