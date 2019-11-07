@@ -17,30 +17,14 @@
 # limitations under the License.
 
 cd /home/${USER}/
+clear
 if [ ! -d "Domoticz-Google-Assistant" ]; then
-    echo "*-----------------------**-----------------------*"
-    echo "*Install Domoticz-Google-Assistant."
-    echo "*Do you want to install Domoticz-Google-Assistant?"
-    echo "(Y)es or (n)o? Default : Yes"
-    read nonUser
-    if [  "$nonUser" = "N" ] || [  "$nonUser" = "n" ]; then
-        echo "Stopping..."
-        exit 1
-    fi
     # Check if Git is needed
     if [ ! -x "$(command -v git)" ]; then
         if [ -x "$(command -v apt)" ]; then
-            sudo apt update
-            sudo apt install git -y
+            sudo apt-get install git -y
         fi
     fi
-    # Check if wget is needed
-    if [ ! -x "$(command -v wget)" ]; then
-        if [ -x "$(command -v apt)" ]; then
-            sudo apt install wget -y
-        fi
-    fi
-    echo ""
     echo "*--------------------**---------------------*"
     echo "Install Domoticz-Google-Assistant"
     echo "---------------------------------------------"
@@ -60,13 +44,16 @@ if [ ! -d "Domoticz-Google-Assistant" ]; then
     # Download from Git repository
     gitURL="https://github.com/DewGew/Domoticz-Google-Assistant"
     git clone $gitURL.git -b $theBranch Domoticz-Google-Assistant
-    # Add service
-    echo ""
-    echo "*--------------------**---------------------*"
-    echo "Installing the service..."
-    echo ""
+    # Installing dependencies
+    sudo chmod +x ~/Domoticz-Google-Assistant/scripts/install.sh
+    sudo ./Domoticz-Google-Assistant/scripts/service-install.sh  
+    # Installing service
     sudo chmod +x ~/Domoticz-Google-Assistant/scripts/service-installer.sh
     sudo ./Domoticz-Google-Assistant/scripts/service-installer.sh
+    sudo  sudo systemctl daemon-reload
+    #sudo systemctl enable dzga.service
+    echo "Starting Domoticz Google Assistant"
+    #sudo systemctl start dzga.service
 else
     echo "!-----------------------------------!"
     echo "Domoticz-Google-Assistant already downloaded."
