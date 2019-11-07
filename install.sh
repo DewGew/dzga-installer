@@ -52,8 +52,9 @@ if [ ! -d "Domoticz-Google-Assistant" ]; then
     # Download from Git repository
     gitURL="https://github.com/DewGew/Domoticz-Google-Assistant"
     sudo git clone $gitURL.git -b $theBranch Domoticz-Google-Assistant
-    # Enter Domoticz-Google-Assistant folder
-    cd Domoticz-Google-Assistant
+    # Add service
+    sudo chmod +x /Domoticz-Google-Assistant/scripts/service-installer.sh
+    sudo ./Domoticz-Google-Assistant/scripts/service-installer.sh
 else
     echo "!-----------------------------------!"
     echo "Domoticz-Google-Assistant already downloaded."
