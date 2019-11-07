@@ -44,7 +44,7 @@ if [ ! -d "Domoticz-Google-Assistant" ]; then
     read theBranchChoice
     if [ "$theBranchChoice" = "Y" ] || [ "$theBranchChoice" = "y" ]; then
         echo "Getting the Development Branch"
-        theBranch='dev'
+        theBranch='beta'
     else
         echo "Getting the Master Branch"
         theBranch='master'
