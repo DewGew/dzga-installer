@@ -16,17 +16,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-echo "*-----------------------**-----------------------*"
-echo "*Install Domoticz-Google-Assistant."
-echo "*Do you want to install Domoticz-Google-Assistant?"
-echo "(Y)es or (n)o? Default : Yes"
-read nonUser
-if [  "$nonUser" = "N" ] || [  "$nonUser" = "n" ]; then
-    echo "Stopping..."
-    exit 1
-fi
 cd /home/${USER}/
 if [ ! -d "Domoticz-Google-Assistant" ]; then
+    echo "*-----------------------**-----------------------*"
+    echo "*Install Domoticz-Google-Assistant."
+    echo "*Do you want to install Domoticz-Google-Assistant?"
+    echo "(Y)es or (n)o? Default : Yes"
+    read nonUser
+    if [  "$nonUser" = "N" ] || [  "$nonUser" = "n" ]; then
+        echo "Stopping..."
+        exit 1
+    fi
     # Check if Git is needed
     if [ ! -x "$(command -v git)" ]; then
         if [ -x "$(command -v apt)" ]; then
@@ -61,7 +61,7 @@ if [ ! -d "Domoticz-Google-Assistant" ]; then
     gitURL="https://github.com/DewGew/Domoticz-Google-Assistant"
     git clone $gitURL.git -b $theBranch Domoticz-Google-Assistant
     # Add service
-    sudo chmod +x /Domoticz-Google-Assistant/scripts/service-installer.sh
+    sudo chmod +x ~/Domoticz-Google-Assistant/scripts/service-installer.sh
     sudo ./Domoticz-Google-Assistant/scripts/service-installer.sh
 else
     echo "!-----------------------------------!"
