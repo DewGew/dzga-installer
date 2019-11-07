@@ -23,9 +23,8 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-defaultDirectory="/home/${USER}/"
-cd $defaultDirectory
-echo "Opening Install Location : \"$defaultDirectory\""
+cd /home/${USER}/
+echo "Opening Install Location"
 if [ ! -d "Domoticz-Google-Assistant" ]; then
     # Check if Git is needed
     if [ ! -x "$(command -v git)" ]; then
