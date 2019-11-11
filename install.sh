@@ -57,6 +57,7 @@ if [ ! -d "Domoticz-Google-Assistant" ]; then
     echo ""
     sudo systemctl start dzga.service
     cd Domoticz-Google-Assistant
+    sleep 1
 else
     echo "!-----------------------------------!"
     echo "Domoticz-Google-Assistant already downloaded."
