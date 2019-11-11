@@ -56,13 +56,16 @@ if [ ! -d "Domoticz-Google-Assistant" ]; then
     echo " Starting Domoticz Google Assistant..."
     echo ""
     sudo systemctl start dzga.service
+    cd Domoticz-Google-Assistant
 else
     echo "!-----------------------------------!"
     echo "Domoticz-Google-Assistant already downloaded."
+    echo "Check for update..."
+    cd Domoticz-Google-Assistant
+    git pull
     sudo systemctl restart dzga.service
 fi
 # start the installer in the main app (or start shinobi if already installed)
-cd Domoticz-Google-Assistant
 _IP="$( ip route get 8.8.8.8 | awk 'NR==1 {print $NF}' )"
 _PORT="$( grep -A0 'port_number:' config.yaml | tail -n1 | awk '{ print $2}')"
 echo ""
