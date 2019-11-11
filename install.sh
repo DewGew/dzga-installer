@@ -59,9 +59,9 @@ if [ ! -d "Domoticz-Google-Assistant" ]; then
 else
     echo "!-----------------------------------!"
     echo "Domoticz-Google-Assistant already downloaded."
+    sudo systemctl restart dzga.service
 fi
 # start the installer in the main app (or start shinobi if already installed)
-sudo systemctl restart dzga.service
 cd Domoticz-Google-Assistant
 _IP="$( ip route get 8.8.8.8 | awk 'NR==1 {print $NF}' )"
 _PORT="$( grep -A0 'port_number:' config.yaml | tail -n1 | awk '{ print $2}')"
