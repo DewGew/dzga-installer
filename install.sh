@@ -62,6 +62,7 @@ else
     echo "Domoticz-Google-Assistant already downloaded."
     echo "Check for update..."
     cd Domoticz-Google-Assistant
+    git reset --hard
     git pull
     sudo systemctl restart dzga.service
 fi
