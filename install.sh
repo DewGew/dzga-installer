@@ -52,12 +52,18 @@ if [ ! -d "Domoticz-Google-Assistant" ]; then
     sudo ./Domoticz-Google-Assistant/scripts/service-installer.sh
     sudo systemctl daemon-reload
     sudo systemctl enable dzga.service
-    sudo ""
-    echo "Starting Domoticz Google Assistant..."
+    echo ""
+    echo " Starting Domoticz Google Assistant..."
+    echo ""
     sudo systemctl start dzga.service
 else
     echo "!-----------------------------------!"
     echo "Domoticz-Google-Assistant already downloaded."
 fi
 # start the installer in the main app (or start shinobi if already installed)
+_IP="$( ip route get 8.8.8.8 | awk 'NR==1 {print $NF}' )"
+_PORT="$( grep -A0 'port_number:' config.yaml | tail -n1 | awk '{ print $2}')"
+echo ""
+echo "Login to Domoticz Google Assistant Server UI at: http://$_IP:$_PORT"
+echo ""
 echo "*-----------------------------------*"
