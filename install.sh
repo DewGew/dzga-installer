@@ -57,7 +57,7 @@ if [ ! -d "Domoticz-Google-Assistant" ]; then
     echo ""
     sudo systemctl start dzga.service
     cd Domoticz-Google-Assistant
-    sleep 1
+    sleep 2
 else
     echo "!-----------------------------------!"
     echo "Domoticz-Google-Assistant already downloaded."
@@ -71,6 +71,6 @@ fi
 _IP="$( ip route get 8.8.8.8 | awk 'NR==1 {print $NF}' )"
 _PORT="$( grep -A0 'port_number:' config.yaml | tail -n1 | awk '{ print $2}')"
 echo ""
-echo "Login to Domoticz Google Assistant Server UI at: http://$_IP:$_PORT"
+echo " Login to Domoticz Google Assistant Server UI at: http://$_IP:$_PORT"
 echo ""
 echo "*-----------------------------------*"
