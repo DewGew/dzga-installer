@@ -74,6 +74,6 @@ fi
 _IP="$( ip route get 8.8.8.8 | awk 'NR==1 {print $NF}' )"
 _PORT="$( grep -A0 'port_number:' config.yaml | tail -n1 | awk '{ print $2}')"
 echo "  Login to Domoticz Google Assistant Server UI at: http://$_IP:$_PORT/settings"
-echo "  Default username and password id \'admin'\"
+echo "  Default username and password id \'admin\'"
 echo ""
 echo "*-----------------------------------*"
