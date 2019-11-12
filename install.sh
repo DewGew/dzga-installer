@@ -61,7 +61,9 @@ if [ ! -d "Domoticz-Google-Assistant" ]; then
 else
     echo "!-----------------------------------!"
     echo "Domoticz-Google-Assistant already downloaded."
-    echo "Check for update..."
+    echo ""
+    echo " Check for update..."
+    echo ""
     cd Domoticz-Google-Assistant
     git reset --hard
     git pull
@@ -71,6 +73,7 @@ fi
 # start the installer in the main app (or start shinobi if already installed)
 _IP="$( ip route get 8.8.8.8 | awk 'NR==1 {print $NF}' )"
 _PORT="$( grep -A0 'port_number:' config.yaml | tail -n1 | awk '{ print $2}')"
-echo " Login to Domoticz Google Assistant Server UI at: http://$_IP:$_PORT"
+echo "  Login to Domoticz Google Assistant Server UI at: http://$_IP:$_PORT/settings"
+echo "  Default username and password id \'admin'\"
 echo ""
 echo "*-----------------------------------*"
