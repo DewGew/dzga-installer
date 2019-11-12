@@ -71,15 +71,15 @@ else
     sudo systemctl restart dzga.service
 fi
 # start the installer in the main app (or start shinobi if already installed)
-branch="$(git branch 2> /dev/null | sed 's/*//')"
+branch="$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/*\ //')"
 if [ "$branch" == "beta" ]; then
-    echo "$branch funkar det?"
+    _IP="$( ip route get 8.8.8.8 | awk 'NR==1 {print $NF}' )"
+    _PORT="$( grep -A0 'port_number:' config.yaml | tr -d '\r'| awk '{ print $2}')"
+    echo "  Login to Domoticz Google Assistant Server UI at: http://$_IP:$_PORT/settings"
+    echo "  Default username is admin and default password is admin"
 else
-    echo "Nope"
+    echo "  Goto Domoticz-Google-Assistant folder and Edit config.yaml and then"
+    echo "  restart dzga.server e.g 'sudo systemctl restart dzga' "
 fi
-_IP="$( ip route get 8.8.8.8 | awk 'NR==1 {print $NF}' )"
-_PORT="$( grep -A0 'port_number:' config.yaml | tr -d '\r'| awk '{ print $2}')"
-echo "  Login to Domoticz Google Assistant Server UI at: http://$_IP:$_PORT/settings"
-echo "  Default username is admin and default password is admin"
 echo ""
 echo "*-----------------------------------*"
