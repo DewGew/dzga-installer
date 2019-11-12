@@ -71,9 +71,9 @@ else
     sudo systemctl restart dzga.service
 fi
 # start the installer in the main app (or start shinobi if already installed)
-theBranch="$(git branch 2> /dev/null | sed 's/*//')"
-if [ "$theBranch" == "beta" ]; then
-    echo "$getBranch funkar det?"
+branch="$(git branch 2> /dev/null | sed 's/*//')"
+if [ "$branch" == "beta" ]; then
+    echo "$branch funkar det?"
 else
     echo "Nope"
 fi
