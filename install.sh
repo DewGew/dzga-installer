@@ -72,7 +72,7 @@ else
 fi
 # start the installer in the main app (or start shinobi if already installed)
 getBranch="$(git branch 2> /dev/null | sed 's/*//')"
-if [$theBranch =  $getBranch]; then
+if [ "$theBranch" =  "$getBranch" ]; then
     echo "$getBranch"
 fi
 _IP="$( ip route get 8.8.8.8 | awk 'NR==1 {print $NF}' )"
