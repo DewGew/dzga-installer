@@ -39,7 +39,7 @@ if [ ! -d "Domoticz-Google-Assistant" ]; then
         theBranch='beta'
     else
         echo "Getting the Master Branch"
-        theBranch='master'
+        theBranch='beta'
     fi
     # Download from Git repository
     gitURL="https://github.com/DewGew/Domoticz-Google-Assistant"
