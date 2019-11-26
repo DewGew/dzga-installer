@@ -70,7 +70,6 @@ else
     echo ""
     sudo systemctl restart dzga.service
 fi
-# start the installer in the main app (or start shinobi if already installed)
 echo "  Login to Domoticz Google Assistant Server UI at: http://ip.address:3030/settings"
 echo "  Default username is admin and default password is admin"
 echo "  or"
