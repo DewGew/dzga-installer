@@ -76,6 +76,5 @@ echo "  Default username is admin and default password is admin"
 echo "  or"
 echo "  Goto Domoticz-Google-Assistant folder and Edit config.yaml and then"
 echo "  restart dzga.server e.g 'sudo systemctl restart dzga' "
-fi
 echo ""
 echo "*-----------------------------------*"
