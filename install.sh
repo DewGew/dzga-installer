@@ -16,9 +16,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+FOLDER="Domoticz-Google-Assistant"
+
 cd /home/${USER}/
 clear
-if [ ! -d "Domoticz-Google-Assistant" ]; then
+if [ ! -d ${FOLDER} ]; then
     # Check if Git is needed
     if [ ! -x "$(command -v git)" ]; then
         if [ -x "$(command -v apt)" ]; then
@@ -43,20 +45,20 @@ if [ ! -d "Domoticz-Google-Assistant" ]; then
     fi
     # Download from Git repository
     gitURL="https://github.com/DewGew/Domoticz-Google-Assistant"
-    git clone $gitURL.git -b $theBranch Domoticz-Google-Assistant
+    git clone $gitURL.git -b $theBranch ${FOLDER}
     # Installing dependencies
-    sudo chmod +x ~/Domoticz-Google-Assistant/scripts/install.sh
-    sudo ./Domoticz-Google-Assistant/scripts/install.sh
+    sudo chmod +x ~/${FOLDER}/scripts/install.sh
+    sudo ./${FOLDER}/scripts/install.sh
     # Installing service
-    sudo chmod +x ~/Domoticz-Google-Assistant/scripts/service-installer.sh
-    sudo ./Domoticz-Google-Assistant/scripts/service-installer.sh
+    sudo chmod +x ~/${FOLDER}/scripts/service-installer.sh
+    sudo ./${FOLDER}/scripts/service-installer.sh
     sudo systemctl daemon-reload
     sudo systemctl enable dzga.service
     echo ""
     echo " Starting Domoticz Google Assistant..."
     echo ""
     sudo systemctl start dzga.service
-    cd Domoticz-Google-Assistant
+    cd ${FOLDER}
     sleep 2
 else
     echo "!-----------------------------------!"
@@ -64,7 +66,7 @@ else
     echo ""
     echo " Check for update..."
     echo ""
-    cd Domoticz-Google-Assistant
+    cd ${FOLDER}
     git reset --hard
     git pull
     echo ""
