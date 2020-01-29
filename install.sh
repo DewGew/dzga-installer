@@ -62,13 +62,24 @@ if [ ! -d ${FOLDER} ]; then
     sleep 2
 else
     echo "!-----------------------------------!"
-    echo "Domoticz-Google-Assistant already downloaded."
+    echo "Domoticz-Google-Assistant already installed."
     echo ""
     echo " Check for update..."
     echo ""
+    sudo apt-get update -y
+    sed 's/#.*//' ${FOLDER}/requirements/system-requirements.txt | xargs sudo apt-get install -y
     cd ${FOLDER}
+    echo ""
+    echo " Check github for update..."
+    echo ""
     git reset --hard
     git pull
+    cd /home/${USER}/
+    source ${FOLDER}/env/bin/activate
+    echo ""
+    echo " Installing python packages..."
+    echo ""
+    pip3 install -r ${FOLDER}/requirements/pip-requirements.txt
     echo ""
     sudo systemctl restart dzga.service
 fi
