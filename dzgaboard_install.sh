@@ -33,14 +33,15 @@ if [ ! -d ${FOLDER} ]; then
     echo "*Note : Dzgaboard is free"
     echo "*for personal use."
     echo "---------------------------------------------"
-    echo "Install the Development branch?"
+    echo "Install the Dzgaboard?"
     echo "(y)es or (N)o? Default : No"
     read theBranchChoice
     if [ "$theBranchChoice" = "Y" ] || [ "$theBranchChoice" = "y" ]; then
-        echo "Getting the Development Branch"
-        theBranch='develop'
+        theBranch='master'
+        echo "Abort install"
+        exit 1
     else
-        echo "Getting the Master Branch"
+        echo "Installing Dzgaboard"
         theBranch='master'
     fi
     # Download from Git repository
