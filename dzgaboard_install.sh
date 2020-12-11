@@ -72,7 +72,7 @@ else
     git reset --hard
     git pull
     echo ""
-    sudo systemctl restart dzga.service
+    sudo systemctl restart dzgaboard.service
 fi
 echo "  Login to Dzgaboard Server UI at: http://ip.address:8181"
 echo "  Default username is admin and default password is admin"
