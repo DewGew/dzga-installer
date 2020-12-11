@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FOLDER="Domoticz-Google-Assistant"
+FOLDER="dzgaboard"
 
 cd /home/${USER}/
 clear
@@ -28,9 +28,9 @@ if [ ! -d ${FOLDER} ]; then
         fi
     fi
     echo "*--------------------**---------------------*"
-    echo "Install Domoticz-Google-Assistant"
+    echo "Install Dzgaboard"
     echo "---------------------------------------------"
-    echo "*Note : Domoticz-Google-Assistant is free"
+    echo "*Note : Dzgaboard is free"
     echo "*for personal use."
     echo "---------------------------------------------"
     echo "Install the Development branch?"
@@ -38,13 +38,13 @@ if [ ! -d ${FOLDER} ]; then
     read theBranchChoice
     if [ "$theBranchChoice" = "Y" ] || [ "$theBranchChoice" = "y" ]; then
         echo "Getting the Development Branch"
-        theBranch='beta'
+        theBranch='develop'
     else
         echo "Getting the Master Branch"
         theBranch='master'
     fi
     # Download from Git repository
-    gitURL="https://github.com/DewGew/Domoticz-Google-Assistant"
+    gitURL="https://github.com/DewGew/dzgaboard"
     git clone $gitURL.git -b $theBranch ${FOLDER}
     # Installing dependencies
     sudo chmod +x ~/${FOLDER}/scripts/install.sh
@@ -53,16 +53,16 @@ if [ ! -d ${FOLDER} ]; then
     sudo chmod +x ~/${FOLDER}/scripts/service-installer.sh
     sudo ./${FOLDER}/scripts/service-installer.sh
     sudo systemctl daemon-reload
-    sudo systemctl enable dzga.service
+    sudo systemctl enable dzgaboard.service
     echo ""
-    echo " Starting Domoticz Google Assistant..."
+    echo " Starting Dzgaboard..."
     echo ""
-    sudo systemctl start dzga.service
+    sudo systemctl start dzgaboard.service
     cd ${FOLDER}
     sleep 2
 else
     echo "!-----------------------------------!"
-    echo "Domoticz-Google-Assistant already installed."
+    echo "Dzgaboard already installed."
     echo ""
     cd ${FOLDER}
     echo ""
@@ -73,10 +73,10 @@ else
     echo ""
     sudo systemctl restart dzga.service
 fi
-echo "  Login to Domoticz Google Assistant Server UI at: http://ip.address:3030/settings"
+echo "  Login to Dzgaboard Server UI at: http://ip.address:8181"
 echo "  Default username is admin and default password is admin"
 echo "  or"
-echo "  Goto Domoticz-Google-Assistant folder and Edit config.yaml and then"
-echo "  restart dzga.server e.g 'sudo systemctl restart dzga' "
+echo "  Goto Dzgaboard/config folder and Edit config.yaml and then"
+echo "  restart dzgaboard.server e.g 'sudo systemctl restart dzgaboard' "
 echo ""
 echo "*-----------------------------------*"
