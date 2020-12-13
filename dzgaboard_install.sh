@@ -37,12 +37,11 @@ if [ ! -d ${FOLDER} ]; then
     echo "(y)es or (N)o? Default : No"
     read theBranchChoice
     if [ "$theBranchChoice" = "Y" ] || [ "$theBranchChoice" = "y" ]; then
-        theBranch='master'
-        echo "Abort install"
-        exit 1
-    else
         echo "Installing Dzgaboard"
         theBranch='master'
+    else
+        echo "Abort install"
+        exit 1
     fi
     # Download from Git repository
     gitURL="https://github.com/DewGew/dzgaboard"
