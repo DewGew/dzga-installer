@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FOLDER="dzgaboard"
+FOLDER="DZGA-Flask"
 
 cd /home/${USER}/
 clear
@@ -30,10 +30,10 @@ if [ ! -d ${FOLDER} ]; then
     echo "*--------------------**---------------------*"
     echo "Install DZGA-Flask"
     echo "---------------------------------------------"
-    echo "*Note : Dzgaboard is free"
+    echo "*Note : Dzga-Flask is free"
     echo "*for personal use."
     echo "---------------------------------------------"
-    echo "Install the Dzgaboard?"
+    echo "Install the DZGA-Flask?"
     echo "(y)es or (N)o? Default : No"
     read theBranchChoice
     if [ "$theBranchChoice" = "Y" ] || [ "$theBranchChoice" = "y" ]; then
@@ -53,11 +53,11 @@ if [ ! -d ${FOLDER} ]; then
     sudo chmod +x ~/${FOLDER}/scripts/service-installer.sh
     sudo ./${FOLDER}/scripts/service-installer.sh
     sudo systemctl daemon-reload
-    sudo systemctl enable dzgaboard.service
+    sudo systemctl enable dzga-flask.service
     echo ""
-    echo " Starting Dzgaboard..."
+    echo " Starting DZGA-Flask..."
     echo ""
-    sudo systemctl start dzgaboard.service
+    sudo systemctl start dzga-flask.service
     cd ${FOLDER}
     sleep 2
 else
@@ -71,9 +71,9 @@ else
     git reset --hard
     git pull
     echo ""
-    sudo systemctl restart dzgaboard.service
+    sudo systemctl restart dzga-flask.service
 fi
 echo "  Login to DZGA-Flask Server UI at: http://ip.address:8181"
-echo "  Default username is admin and default password is admin"
+echo "  Default username is admin and default password is smarthome"
 echo ""
 echo "*-----------------------------------*"
