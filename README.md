@@ -32,7 +32,7 @@ cd /home/${USER/
 sudo systemctl stop dzga
 sudo systemctl disable dzga
 sudo rm /etc/systemd/system/dzga.service
-sudo rm -r /home/${USER/Domoticz-Google-Assistant
+sudo rm -r /home/${USER}/Domoticz-Google-Assistant
 ```
 
 [Domoticz-Google-Assistant wiki](https://github.com/DewGew/Domoticz-Google-Assistant/wiki)
