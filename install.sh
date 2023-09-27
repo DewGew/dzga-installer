@@ -33,16 +33,8 @@ if [ ! -d ${FOLDER} ]; then
     echo "*Note : Domoticz-Google-Assistant is free"
     echo "*for personal use."
     echo "---------------------------------------------"
-    echo "Install the Development branch?"
-    echo "(y)es or (N)o? Default : No"
-    read theBranchChoice
-    if [ "$theBranchChoice" = "Y" ] || [ "$theBranchChoice" = "y" ]; then
-        echo "Getting the Development Branch"
-        theBranch='beta'
-    else
-        echo "Getting the Master Branch"
-        theBranch='master'
-    fi
+    echo "Getting the Master Branch"
+    theBranch='master'
     # Download from Git repository
     gitURL="https://github.com/DewGew/Domoticz-Google-Assistant"
     git clone $gitURL.git -b $theBranch ${FOLDER}
